@@ -1,20 +1,20 @@
 #!/bin/bash -x
 echo "WELCOME TO FLIP COIN COMBINATION"
 
-head=0
-tail=0
+head=0;
+tail=0;
 read -p "Enter number of flip required " n
 for (( i=0; i<n; i++ ))
 do
-	result=$(( RANDOM%2 ))
-if [ $result == 1 ];
+	result=$(( RANDOM%2 ));
+	if [ $result == 1 ];
 	then
          	head=$(($head+1))
 	else
         	tail=$(($tail+1))
 	fi
-	sum=$(( RANDOM%4 ));
-	case $sum in
+	sum1=$(( RANDOM%4 ));
+	case $sum1 in
 		0) hh=$(($hh+1))
 			;;
 		1) ht=$(($ht+1))
@@ -26,6 +26,27 @@ if [ $result == 1 ];
 		*) echo "Went  wrong"
 			;;
 	esac
+	sum=$(( RANDOM%7 ));
+        case $sum in
+                0) hhh=$(($hhh+1))
+                        ;;
+                1) hht=$(($hht+1))
+                        ;;
+                2) hth=$(($hth+1))
+                        ;;
+                3) htt=$(($htt+1))
+                        ;;
+		4) thh=$(($hth+1))
+                        ;;
+                5) tht=$(($tht+1))
+                        ;;
+                6) tth=$(($tth+1))
+                        ;;
+                7) ttt=$(($ttt+1))
+                        ;;
+		*) echo "something went  wrong"
+                        ;;
+	esac
 done
 
 echo "Number of head win" $head
@@ -34,3 +55,12 @@ echo "Number of hh combination " $hh
 echo "Number of ht combination " $ht
 echo "Number of th combination " $th
 echo "Number of tt combination " $tt
+echo "Number of hhh combination " $hhh
+echo "Number of hht combination " $hht
+echo "Number of hth combination " $hth
+echo "Number of htt combination " $htt
+echo "Number of thh combination " $thh
+echo "Number of tht combination " $tht
+echo "Number of tth combination " $tth
+echo "Number of ttt combination " $ttt
+
